@@ -463,31 +463,34 @@ export default function IQACDashboard() {
   await save(list);
 
   // 🔥 SEND DATA TO GOOGLE SHEET
-  try {
-    await fetch(
-      "https://script.google.com/macros/s/AKfycbwz-j_XaWNPTGWWSA36sRjDs3I-u3DN17DlPSUkf7aijICSP9Op2eHdSwqI8fHfliN89g/exec",
-      {
-        method: "POST",
-        body: JSON.stringify({
-          facultyName: form.faculty,
-          activityTitle: form.title,
-          department: form.department,
-          email: form.email,
-          activityType: form.type,
-          date: form.date,
-          academicYear: form.year,
-          level: form.level,
-          venue: form.venue,
-          students: form.participants,
-          facultyCount: form.facultyCount,
-          description: form.description,
-          outcomes: form.outcomes,
-          latitude: form.latitude,
-          longitude: form.longitude
-        })
-      }
-    );
-  } catch (err) {
+ try {
+  await fetch(
+    "https://script.google.com/macros/s/AKfycbwz-j_XaWNPTGWWSA36sRjDs3I-u3DN17DlPSUkf7aijICSP9Op2eHdSwqI8fHfliN89g/exec",
+    {
+      method: "POST",
+      mode: "no-cors",
+      body: JSON.stringify({
+        facultyName: form.faculty,
+        activityTitle: form.title,
+        department: form.department,
+        email: form.inchargeEmail,
+        activityType: form.type,
+        date: form.date,
+        academicYear: form.academicYear,
+        level: form.level,
+        venue: form.venue,
+        students: form.participants,
+        facultyCount: form.facultyCount,
+        description: form.description,
+        outcomes: form.outcome,
+        latitude: form.lat,
+        longitude: form.lng
+      })
+    }
+  );
+} catch (err) {
+  console.error("Sheet Error:", err);
+} catch (err) {
     console.error("Sheet Error:", err);
   }
 
