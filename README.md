@@ -34,6 +34,9 @@ npm run deploy
 ```
 
 ---
+**Repository Note: **
+
+Developed and maintained by Dr. C. V. Krishnaveni for academic and IQAC automation purposes. This repository may be migrated to the author’s personal GitHub account for continuity and long-term maintenance.
 
 ## © Copyright
 © 2024 Dr. C.V. Krishnaveni, Department of Computer Science,  
